@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Love Question</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;  
+            margin-top: 50px;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+        .image-container {
+            margin-top: 20px;
+        }
+        .love-image {
+            width: 150px;
+            height: auto;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Do you love Romeo, the Handsome and strong man? :D</h1>
+        <button class="btn yes" onclick="showLove()">Yes</button>
+        <button class="btn no" onmouseover="moveNoButton()">No</button>
+        <div class="image-container" id="imageContainer"></div>
+    </div>
+    <script>
+        function showLove() {
+            alert("Yay! I love you too! ❤️🥰");
+            const images = [
+                "https://c.tenor.com/hSopgXjPOEgAAAAC/tenor.gif"
+            ];
+            const container = document.getElementById("imageContainer");
+            container.innerHTML = "";
+            images.forEach(src => {
+                const img = document.createElement("img");
+                img.src = src;
+                img.className = "love-image";
+                container.appendChild(img);
+            });
+        }
+
+        function moveNoButton() {
+            const noButton = document.querySelector(".no");
+            const maxX = window.innerWidth - noButton.clientWidth;
+            const maxY = window.innerHeight - noButton.clientHeight;
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            noButton.style.left = randomX + "px";
+            noButton.style.top = randomY + "px";
+        }
+    </script>
+</body>
+</html>
